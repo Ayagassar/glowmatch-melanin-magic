@@ -1,0 +1,68 @@
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <nav className="py-4 md:py-6 bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+      <div className="container-custom flex justify-between items-center">
+        <Link to="/" className="text-xl font-serif font-medium text-skin-brown-800">
+          GlowMatch AI
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-6">
+          <Link to="/quiz" className="text-skin-brown-700 hover:text-skin-brown-900">
+            Take the Quiz
+          </Link>
+          <Link to="/dashboard" className="text-skin-brown-700 hover:text-skin-brown-900">
+            Dashboard
+          </Link>
+          <Link to="/login" className="btn-primary">
+            Sign In
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-skin-brown-800"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-6 flex flex-col space-y-4 border-t border-skin-brown-200">
+          <Link
+            to="/quiz"
+            className="text-skin-brown-700 hover:text-skin-brown-900 py-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Take the Quiz
+          </Link>
+          <Link
+            to="/dashboard"
+            className="text-skin-brown-700 hover:text-skin-brown-900 py-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Dashboard
+          </Link>
+          <Link
+            to="/login"
+            className="btn-primary text-center"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Sign In
+          </Link>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
