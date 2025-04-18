@@ -59,23 +59,23 @@ const Inclusivity = () => {
             <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-skin-peach-200 rounded-full opacity-30 blur-3xl"></div>
             <div className="grid grid-cols-2 gap-4 relative z-10">
               <img 
+                src="https://images.unsplash.com/photo-1609246834128-5ec1fbf65786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                alt="Black woman applying skincare" 
+                className="rounded-lg h-64 w-full object-cover"
+              />
+              <img 
                 src="https://images.unsplash.com/photo-1605980776566-0486c3ac7cbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                alt="Woman applying skincare" 
+                alt="Skincare products for melanin-rich skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
-                alt="Skincare products" 
+                src="https://images.unsplash.com/photo-1596778002200-0ccfa384bd7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                alt="Close-up of Black woman's skin texture" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1576847576214-987b30e80e15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                alt="Skin texture closeup" 
-                className="rounded-lg h-64 w-full object-cover"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1662133645503-aea8bc6b4bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
-                alt="Woman smiling with healthy skin" 
+                src="https://images.unsplash.com/photo-1586368432012-8249c0e1615a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                alt="Black woman smiling with healthy skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
             </div>

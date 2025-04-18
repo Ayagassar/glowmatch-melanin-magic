@@ -28,8 +28,8 @@ const Hero = () => {
               <div className="absolute -top-8 -left-8 w-64 h-64 bg-skin-gold-200 rounded-full opacity-40 blur-3xl"></div>
               <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-skin-peach-200 rounded-full opacity-40 blur-3xl"></div>
               <img 
-                src="https://images.unsplash.com/photo-1619451683995-9c1eda5c9ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" 
-                alt="Woman with beautiful skin" 
+                src="https://images.unsplash.com/photo-1611499677135-e4908e757a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" 
+                alt="Black woman with beautiful skin" 
                 className="rounded-2xl shadow-lg relative z-10 object-cover h-[500px] w-full"
               />
             </div>
