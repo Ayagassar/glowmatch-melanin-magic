@@ -59,22 +59,22 @@ const Inclusivity = () => {
             <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-skin-peach-200 rounded-full opacity-30 blur-3xl"></div>
             <div className="grid grid-cols-2 gap-4 relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1609246834128-5ec1fbf65786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://images.unsplash.com/photo-1607779097040-28d8a56606d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
                 alt="Black woman applying skincare" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1605980776566-0486c3ac7cbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://images.unsplash.com/photo-1631730357883-069a1adda3f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
                 alt="Skincare products for melanin-rich skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1596778002200-0ccfa384bd7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
                 alt="Close-up of Black woman's skin texture" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1586368432012-8249c0e1615a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                src="https://images.unsplash.com/photo-1573908648466-90acb9684338?ixlib=rb-4.0.3&auto=format&fit=crop&w=764&q=80" 
                 alt="Black woman smiling with healthy skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
