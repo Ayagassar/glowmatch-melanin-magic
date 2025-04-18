@@ -6,6 +6,7 @@ import QuizProgress from "@/components/quiz/QuizProgress";
 import QuizQuestion from "@/components/quiz/QuizQuestion";
 import { useQuiz, quizQuestions } from "@/contexts/QuizContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 const QuizPage = () => {
   const { 
@@ -20,6 +21,7 @@ const QuizPage = () => {
   
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
   
   // Get current question
@@ -35,9 +37,16 @@ const QuizPage = () => {
       setSubmitting(true);
       // Submit the quiz and redirect to dashboard
       completeQuiz();
+      // Show toast notification
+      toast({
+        title: "Quiz completed!",
+        description: "We've found your personalized skincare matches!",
+        duration: 3000,
+      });
       // Simulate loading
       setTimeout(() => {
         setSubmitting(false);
+        navigate("/dashboard");
       }, 1500);
     } else {
       nextStep();

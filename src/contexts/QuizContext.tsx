@@ -1,5 +1,5 @@
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 // Quiz question types
 export type QuizQuestion = {
@@ -119,9 +119,30 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
 
   const totalSteps = quizQuestions.length;
 
+  // Load saved answers and completion status from localStorage if available
+  useEffect(() => {
+    const savedAnswers = localStorage.getItem("glowmatch_quiz_answers");
+    const savedProfile = localStorage.getItem("glowmatch_skin_profile");
+    const savedCompletion = localStorage.getItem("glowmatch_quiz_complete");
+    
+    if (savedAnswers) {
+      setAnswers(JSON.parse(savedAnswers));
+    }
+    
+    if (savedProfile) {
+      setSkinProfile(JSON.parse(savedProfile));
+    }
+    
+    if (savedCompletion === "true") {
+      setIsComplete(true);
+    }
+  }, []);
+
   // Set answer for a specific question
   const setAnswer = (questionId: string, answer: any) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: answer }));
+    const updatedAnswers = { ...answers, [questionId]: answer };
+    setAnswers(updatedAnswers);
+    localStorage.setItem("glowmatch_quiz_answers", JSON.stringify(updatedAnswers));
   };
 
   // Navigate to next step
@@ -147,23 +168,23 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
 
   // Complete the quiz and generate skin profile
   const completeQuiz = () => {
-    // Create skin profile from answers
+    // Create skin profile from answers with defaults for any missing answers
     const profile: SkinProfile = {
-      skinTone: answers.skinTone || "",
-      skinType: answers.skinType || "",
-      concerns: answers.concerns || [],
+      skinTone: answers.skinTone || "medium",
+      skinType: answers.skinType || "normal",
+      concerns: answers.concerns || ["hyperpigmentation"],
       sensitivity: answers.sensitivity || 3,
-      location: answers.location || "",
+      location: answers.location || "temperate",
     };
 
     setSkinProfile(profile);
     setIsComplete(true);
 
-    // In a real app, you would save this profile to a database
-    console.log("Quiz completed with profile:", profile);
-    
-    // Save in localStorage for now
+    // Save to localStorage
     localStorage.setItem("glowmatch_skin_profile", JSON.stringify(profile));
+    localStorage.setItem("glowmatch_quiz_complete", "true");
+    
+    console.log("Quiz completed with profile:", profile);
   };
 
   // Reset the quiz
@@ -172,6 +193,11 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
     setAnswers({});
     setSkinProfile(null);
     setIsComplete(false);
+    
+    // Clear localStorage
+    localStorage.removeItem("glowmatch_quiz_answers");
+    localStorage.removeItem("glowmatch_skin_profile");
+    localStorage.removeItem("glowmatch_quiz_complete");
   };
 
   return (
