@@ -10,6 +10,7 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import QuizPage from "./pages/QuizPage";
 import DashboardPage from "./pages/DashboardPage";
+import RecommendationsPage from "./pages/RecommendationsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
@@ -34,6 +35,14 @@ const App = () => (
                 element={
                   <PrivateRoute>
                     <QuizPage />
+                  </PrivateRoute>
+                } 
+              />
+              <Route 
+                path="/recommendations" 
+                element={
+                  <PrivateRoute requiresQuiz>
+                    <RecommendationsPage />
                   </PrivateRoute>
                 } 
               />

@@ -35,7 +35,7 @@ const QuizPage = () => {
   const handleNext = () => {
     if (isLastQuestion) {
       setSubmitting(true);
-      // Submit the quiz and redirect to dashboard
+      // Submit the quiz and redirect to recommendations
       completeQuiz();
       // Show toast notification
       toast({
@@ -46,17 +46,17 @@ const QuizPage = () => {
       // Simulate loading
       setTimeout(() => {
         setSubmitting(false);
-        navigate("/dashboard");
+        navigate("/recommendations");
       }, 1500);
     } else {
       nextStep();
     }
   };
   
-  // Redirect to dashboard if quiz is complete
+  // Redirect to recommendations if quiz is complete
   useEffect(() => {
     if (isComplete && !submitting) {
-      navigate("/dashboard");
+      navigate("/recommendations");
     }
   }, [isComplete, submitting, navigate]);
 
