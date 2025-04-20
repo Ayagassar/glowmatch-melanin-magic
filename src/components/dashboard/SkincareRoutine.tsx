@@ -26,7 +26,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasAcne 
         ? "Contains salicylic acid to help control oil and prevent breakouts without over-drying."
         : "Gentle formula that won't strip your skin's natural moisture barrier.",
-      imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: hasDryness ? "Hydrating Essence Toner" : "Balancing Toner",
@@ -35,7 +35,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasDryness 
         ? "Contains hyaluronic acid and glycerin to boost hydration."
         : "Helps balance pH and prepare skin for the next steps in your routine.",
-      imageUrl: "https://images.unsplash.com/photo-1594466707717-fa26071cc679?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
     },
     {
       name: hasHyperpigmentation ? "Vitamin C Brightening Serum" : "Antioxidant Serum",
@@ -44,7 +44,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasHyperpigmentation 
         ? "15% Vitamin C formula specifically designed to fade dark spots and even skin tone."
         : "Protects against environmental damage and promotes overall skin health.",
-      imageUrl: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1601049838941-042fb1bab2d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: hasDryness ? "Rich Daily Moisturizer" : "Oil-Free Moisturizer",
@@ -53,7 +53,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasDryness 
         ? "Contains ceramides and shea butter to deeply nourish dry skin."
         : "Lightweight formula that hydrates without causing oiliness or clogging pores.",
-      imageUrl: "https://images.unsplash.com/photo-1620916297397-a4a5402a3c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=752&q=80",
     },
     {
       name: hasSensitivity ? "Mineral Sunscreen SPF 50" : "Broad Spectrum SPF 50",
@@ -62,7 +62,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasSensitivity 
         ? "Mineral formula designed for sensitive skin with zinc oxide that doesn't leave a white cast."
         : "Specially formulated for melanin-rich skin with no white cast and antioxidant protection.",
-      imageUrl: "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1556229167-7ed11195e641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
     },
   ];
   
@@ -73,7 +73,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       brand: "Pure Glow",
       purpose: "First Cleanse",
       matchReason: "Effectively removes makeup and sunscreen without stripping the skin.",
-      imageUrl: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: hasAcne ? "Clarifying Gel Cleanser" : "Hydrating Cream Cleanser",
@@ -82,7 +82,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasAcne 
         ? "Contains tea tree oil and niacinamide to combat acne without irritation."
         : "Gently cleanses while maintaining skin's moisture balance.",
-      imageUrl: "https://images.unsplash.com/photo-1601049531267-adfdceedaf7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1626394809745-ee1fd3a24d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: "Exfoliating Toner",
@@ -91,7 +91,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasHyperpigmentation 
         ? "Contains mandelic acid, which is gentle yet effective for treating hyperpigmentation." 
         : "Helps remove dead skin cells and improve skin texture without irritation.",
-      imageUrl: "https://images.unsplash.com/photo-1634136906147-14a098cd5447?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1576506542790-51244b486a6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: hasHyperpigmentation 
@@ -104,7 +104,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
         : hasAcne 
           ? "Contains salicylic acid and zinc to treat and prevent breakouts."
           : "Boosts skin's hydration and supports collagen production.",
-      imageUrl: "https://images.unsplash.com/photo-1616949755610-8c9bfe2ead85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1598662972299-5408ddb8a3dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     {
       name: hasHyperpigmentation ? "Retinol Night Cream" : "Nourishing Night Cream",
@@ -113,7 +113,7 @@ const SkincareRoutine = ({ skinTone, skinType, concerns }: SkincareRoutineProps)
       matchReason: hasHyperpigmentation 
         ? "Contains encapsulated retinol to fight hyperpigmentation and promote cell turnover."
         : "Rich formula with ceramides and peptides to repair and nourish skin overnight.",
-      imageUrl: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1517391882955-e1b20cafee7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
   ];
 
