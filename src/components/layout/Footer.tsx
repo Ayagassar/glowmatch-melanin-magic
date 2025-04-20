@@ -1,5 +1,5 @@
-
 import { Link } from "react-router-dom";
+import { Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -41,13 +41,25 @@ const Footer = () => {
             <h3 className="text-lg font-medium text-skin-brown-800 mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-skin-brown-600 hover:text-skin-brown-800">
-                  Instagram
+                <a 
+                  href="https://instagram.com/glowmatchai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-skin-brown-600 hover:text-skin-brown-800 flex items-center gap-2"
+                >
+                  <Instagram size={20} />
+                  <span>Instagram</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-skin-brown-600 hover:text-skin-brown-800">
-                  Twitter
+                <a 
+                  href="https://twitter.com/glowmatchai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-skin-brown-600 hover:text-skin-brown-800 flex items-center gap-2"
+                >
+                  <Twitter size={20} />
+                  <span>Twitter</span>
                 </a>
               </li>
               <li>
