@@ -1,10 +1,22 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/login");
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
+  };
 
   return (
     <nav className="py-4 md:py-6 bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
@@ -18,9 +30,23 @@ const Navbar = () => {
           <Link to="/quiz" className="text-skin-brown-700 hover:text-skin-brown-900">
             Take the Quiz
           </Link>
-          <Link to="/login" className="btn-primary">
-            Sign In
-          </Link>
+          {isAuthenticated ? (
+            <div className="flex items-center gap-4">
+              <Link to="/dashboard" className="text-skin-brown-700 hover:text-skin-brown-900">
+                My Profile
+              </Link>
+              <button 
+                onClick={handleLogout}
+                className="btn-outline"
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <button onClick={handleSignIn} className="btn-primary">
+              Sign In
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -42,13 +68,36 @@ const Navbar = () => {
           >
             Take the Quiz
           </Link>
-          <Link
-            to="/login"
-            className="btn-primary text-center"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Sign In
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link
+                to="/dashboard"
+                className="text-skin-brown-700 hover:text-skin-brown-900 py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                My Profile
+              </Link>
+              <button 
+                onClick={() => {
+                  handleLogout();
+                  setIsMenuOpen(false);
+                }}
+                className="btn-outline text-center"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => {
+                handleSignIn();
+                setIsMenuOpen(false);
+              }}
+              className="btn-primary text-center"
+            >
+              Sign In
+            </button>
+          )}
         </div>
       )}
     </nav>

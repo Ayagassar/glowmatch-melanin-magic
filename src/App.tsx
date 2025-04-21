@@ -9,7 +9,7 @@ import { QuizProvider } from "./contexts/QuizContext";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import QuizPage from "./pages/QuizPage";
-import RecommendationsPage from "./pages/RecommendationsPage";
+import DashboardPage from "./pages/DashboardPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
@@ -31,13 +31,15 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/quiz" element={<QuizPage />} />
               <Route 
-                path="/recommendations" 
+                path="/dashboard" 
                 element={
                   <PrivateRoute requiresQuiz>
-                    <RecommendationsPage />
+                    <DashboardPage />
                   </PrivateRoute>
                 } 
               />
+              {/* Redirect old recommendations URL to dashboard */}
+              <Route path="/recommendations" element={<Navigate to="/dashboard" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

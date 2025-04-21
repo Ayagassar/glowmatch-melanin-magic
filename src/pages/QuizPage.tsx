@@ -56,10 +56,10 @@ const QuizPage = () => {
           setShowLoginPrompt(true);
         }, 1000);
       } else {
-        // If authenticated, redirect to recommendations
+        // If authenticated, redirect to dashboard
         setTimeout(() => {
           setSubmitting(false);
-          navigate("/recommendations");
+          navigate("/dashboard");
         }, 1500);
       }
     } else {
@@ -67,10 +67,10 @@ const QuizPage = () => {
     }
   };
   
-  // Redirect to recommendations if quiz is complete and user is authenticated
+  // Redirect to dashboard if quiz is complete and user is authenticated
   useEffect(() => {
     if (isComplete && !submitting && isAuthenticated) {
-      navigate("/recommendations");
+      navigate("/dashboard");
     }
   }, [isComplete, submitting, isAuthenticated, navigate]);
 
@@ -87,7 +87,7 @@ const QuizPage = () => {
   
   const handleContinueAsGuest = () => {
     setShowLoginPrompt(false);
-    navigate("/recommendations");
+    navigate("/dashboard");
   };
 
   return (

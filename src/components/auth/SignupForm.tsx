@@ -27,14 +27,14 @@ const SignupForm = () => {
 
     try {
       await signup(name, email, password);
-      navigate("/quiz");
+      navigate("/dashboard");
     } catch (err) {
       setError("Error creating account. Please try again.");
     }
   };
 
   return (
-    <div className="max-w-md w-full mx-auto p-6 bg-white rounded-2xl shadow-sm border border-skin-brown-200">
+    <div className="max-w-md w-full mx-auto">
       <h2 className="text-2xl font-medium text-skin-brown-800 mb-6 text-center">Create Your Account</h2>
       
       {error && (

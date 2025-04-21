@@ -1,7 +1,13 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+  
+  const handleGetStarted = () => {
+    navigate("/quiz");
+  };
+  
   return (
     <section className="section bg-gradient-to-br from-skin-terracotta-500 to-skin-peach-500 text-white">
       <div className="container-custom">
@@ -13,12 +19,12 @@ const CTASection = () => {
             Take our personalized skincare quiz and get recommendations tailored specifically 
             to your melanin-rich skin.
           </p>
-          <Link 
-            to="/quiz" 
+          <button 
+            onClick={handleGetStarted}
             className="inline-block bg-white text-skin-terracotta-600 hover:bg-skin-brown-50 py-3 px-8 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200"
           >
             Get Started Now
-          </Link>
+          </button>
         </div>
       </div>
     </section>

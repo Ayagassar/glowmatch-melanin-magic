@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useQuiz } from '@/contexts/QuizContext';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ interface PrivateRouteProps {
 
 const PrivateRoute = ({ children, requiresQuiz = false }: PrivateRouteProps) => {
   const { isAuthenticated, user, loading } = useAuth();
+  const { isComplete } = useQuiz();
   const location = useLocation();
 
   // If auth is still loading, show nothing (or a loader)
@@ -19,14 +21,14 @@ const PrivateRoute = ({ children, requiresQuiz = false }: PrivateRouteProps) => 
     );
   }
 
-  // If not authenticated, redirect to login
-  if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+  // If this route requires quiz completion and quiz is not completed
+  if (requiresQuiz && !isComplete) {
+    return <Navigate to="/quiz" replace />;
   }
 
-  // If this route requires quiz completion and user hasn't done it
-  if (requiresQuiz && user && !user.hasCompletedQuiz) {
-    return <Navigate to="/quiz" replace />;
+  // If not authenticated and not coming from the quiz (allow quiz users as guests)
+  if (!isAuthenticated && !isComplete) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // Otherwise render the children

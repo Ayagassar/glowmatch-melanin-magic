@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import LoginForm from "@/components/auth/LoginForm";
 import SignupForm from "@/components/auth/SignupForm";
@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const LoginPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(!location.state?.signup);
   const { isAuthenticated } = useAuth();
 
@@ -18,9 +19,9 @@ const LoginPage = () => {
     }
   }, [location.state]);
 
-  // If user is already authenticated, redirect to recommendations
+  // If user is already authenticated, redirect to dashboard
   if (isAuthenticated) {
-    return <Navigate to="/recommendations" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   return (

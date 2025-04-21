@@ -28,7 +28,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto p-6 bg-white rounded-2xl shadow-sm border border-skin-brown-200">
+    <div className="max-w-md w-full mx-auto">
       <h2 className="text-2xl font-medium text-skin-brown-800 mb-6 text-center">Welcome Back</h2>
       
       {error && (
