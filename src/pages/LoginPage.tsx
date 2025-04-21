@@ -1,18 +1,26 @@
 
-import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import LoginForm from "@/components/auth/LoginForm";
 import SignupForm from "@/components/auth/SignupForm";
 import { useAuth } from "@/contexts/AuthContext";
 
 const LoginPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const location = useLocation();
+  const [isLogin, setIsLogin] = useState(!location.state?.signup);
   const { isAuthenticated } = useAuth();
 
-  // If user is already authenticated, redirect to dashboard
+  // Update state if navigated from elsewhere with signup param
+  useEffect(() => {
+    if (location.state?.signup) {
+      setIsLogin(false);
+    }
+  }, [location.state]);
+
+  // If user is already authenticated, redirect to recommendations
   if (isAuthenticated) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/recommendations" replace />;
   }
 
   return (

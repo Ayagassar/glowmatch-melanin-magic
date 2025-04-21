@@ -14,7 +14,7 @@ const CTASection = () => {
             to your melanin-rich skin.
           </p>
           <Link 
-            to="/signup" 
+            to="/quiz" 
             className="inline-block bg-white text-skin-terracotta-600 hover:bg-skin-brown-50 py-3 px-8 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200"
           >
             Get Started Now

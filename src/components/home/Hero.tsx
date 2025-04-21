@@ -15,7 +15,7 @@ const Hero = () => {
               Products that truly work for your unique skin tone, type, and concerns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/signup" className="btn-primary text-center sm:w-auto">
+              <Link to="/quiz" className="btn-primary text-center sm:w-auto">
                 Get Your Matches
               </Link>
               <Link to="/quiz" className="btn-outline text-center sm:w-auto">

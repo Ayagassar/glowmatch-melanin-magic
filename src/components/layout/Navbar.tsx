@@ -18,9 +18,6 @@ const Navbar = () => {
           <Link to="/quiz" className="text-skin-brown-700 hover:text-skin-brown-900">
             Take the Quiz
           </Link>
-          <Link to="/dashboard" className="text-skin-brown-700 hover:text-skin-brown-900">
-            Dashboard
-          </Link>
           <Link to="/login" className="btn-primary">
             Sign In
           </Link>
@@ -44,13 +41,6 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             Take the Quiz
-          </Link>
-          <Link
-            to="/dashboard"
-            className="text-skin-brown-700 hover:text-skin-brown-900 py-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Dashboard
           </Link>
           <Link
             to="/login"

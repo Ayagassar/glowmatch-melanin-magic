@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Instagram, Twitter } from "lucide-react";
 
@@ -27,11 +28,6 @@ const Footer = () => {
               <li>
                 <Link to="/quiz" className="text-skin-brown-600 hover:text-skin-brown-800">
                   Take the Quiz
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard" className="text-skin-brown-600 hover:text-skin-brown-800">
-                  Dashboard
                 </Link>
               </li>
             </ul>
@@ -70,6 +66,13 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+      </div>
+      
+      {/* Mobile fixed copyright */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-skin-brown-100 py-2 px-4 text-center border-t border-skin-brown-200">
+        <p className="text-skin-brown-600 text-xs">
+          © {new Date().getFullYear()} GlowMatch AI. All rights reserved.
+        </p>
       </div>
     </footer>
   );

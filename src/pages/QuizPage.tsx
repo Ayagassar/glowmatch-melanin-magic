@@ -9,7 +9,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const QuizPage = () => {
   const { 
@@ -52,7 +51,10 @@ const QuizPage = () => {
       
       // If user is not authenticated, show login prompt
       if (!isAuthenticated) {
-        setShowLoginPrompt(true);
+        setTimeout(() => {
+          setSubmitting(false);
+          setShowLoginPrompt(true);
+        }, 1000);
       } else {
         // If authenticated, redirect to recommendations
         setTimeout(() => {
