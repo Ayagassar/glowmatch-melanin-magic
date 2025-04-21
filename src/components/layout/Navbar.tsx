@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/Screenshot_2025-04-21_at_15.23.24-removebg-preview.png"; // Adjust path if needed
+import logo from "@/assets/Screenshot_2025-04-21_at_15.23.24-removebg-preview.png"; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
