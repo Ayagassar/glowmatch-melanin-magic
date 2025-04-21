@@ -55,12 +55,12 @@ export const quizQuestions: QuizQuestion[] = [
       { 
         value: "medium", 
         label: "Medium Brown", 
-        imageUrl: "https://i.pinimg.com/474x/97/e0/95/97e095c2a8e6467fce1f0a24eeee1ae5.jpg" 
+        imageUrl: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-03ec-6246-80eb-3a62ec0e33c4/raw?se=2025-04-21T11%3A37%3A29Z&sp=r&sv=2024-08-04&sr=b&scid=8bab4ddb-c810-5a23-92e4-66c5d84e2940&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-21T08%3A08%3A00Z&ske=2025-04-22T08%3A08%3A00Z&sks=b&skv=2024-08-04&sig=x9F4wQM3a5RucYgeGAr5sJcq6Tcs3NY1mCaMrg2H2Pc%3D" 
       },
       { 
         value: "medium-dark", 
         label: "Medium to Dark Brown", 
-        imageUrl: "https://i.pinimg.com/474x/e8/a2/fa/e8a2fa5e00c234801b33c7c6b7d21f66.jpg" 
+        imageUrl: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-7adc-6246-854e-698a0ea6a920/raw?se=2025-04-21T11%3A40%3A58Z&sp=r&sv=2024-08-04&sr=b&scid=90a353d0-50c2-54cc-a4ef-5c76060ead81&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-21T05%3A49%3A06Z&ske=2025-04-22T05%3A49%3A06Z&sks=b&skv=2024-08-04&sig=45B1iCFq7fKTR2XhOVpb/qLstPwmzQXOK5RdTBc3hC4%3D" 
       },
       { 
         value: "dark", 
