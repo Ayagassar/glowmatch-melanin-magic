@@ -59,22 +59,22 @@ const Inclusivity = () => {
             <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-skin-peach-200 rounded-full opacity-30 blur-3xl"></div>
             <div className="grid grid-cols-2 gap-4 relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1620388686376-acd128a1ce19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://i.pinimg.com/474x/47/62/4e/47624e5ab9a1c935039540c6ebc2e1a9.jpg" 
                 alt="Black woman applying skincare" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1553173228-715caecb2397?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://i.pinimg.com/474x/23/a5/99/23a5997b3b15c34b473a2f9987ef1446.jpg" 
                 alt="Skincare products for melanin-rich skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1595301551188-e8638d0a8484?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                src="https://i.pinimg.com/474x/68/18/4d/68184d2a97f14da6f58ca3d37df1c8c6.jpg" 
                 alt="Close-up of Black woman's skin texture" 
                 className="rounded-lg h-64 w-full object-cover"
               />
               <img 
-                src="https://images.unsplash.com/photo-1542740348-39501cd6e2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                src="https://i.pinimg.com/474x/58/2c/df/582cdfd90d3417bd9ab009832fd63591.jpg" 
                 alt="Black woman smiling with healthy skin" 
                 className="rounded-lg h-64 w-full object-cover"
               />
