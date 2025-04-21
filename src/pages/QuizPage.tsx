@@ -74,6 +74,22 @@ const QuizPage = () => {
     }
   }, [isComplete, submitting, isAuthenticated, navigate]);
 
+  // Handle login prompt actions
+  const handleCreateAccount = () => {
+    setShowLoginPrompt(false);
+    navigate("/login", { state: { signup: true } });
+  };
+  
+  const handleSignIn = () => {
+    setShowLoginPrompt(false);
+    navigate("/login");
+  };
+  
+  const handleContinueAsGuest = () => {
+    setShowLoginPrompt(false);
+    navigate("/recommendations");
+  };
+
   return (
     <Layout>
       <div className="bg-skin-brown-50 py-12 md:py-16 min-h-screen">
@@ -139,10 +155,7 @@ const QuizPage = () => {
             <div className="flex flex-col items-center gap-4">
               <Button 
                 className="w-full bg-skin-terracotta-500 hover:bg-skin-terracotta-600"
-                onClick={() => {
-                  setShowLoginPrompt(false);
-                  navigate("/login", { state: { signup: true } });
-                }}
+                onClick={handleCreateAccount}
               >
                 Create Account
               </Button>
@@ -150,20 +163,14 @@ const QuizPage = () => {
               <Button 
                 variant="outline" 
                 className="w-full border-skin-brown-300 text-skin-brown-700 hover:bg-skin-brown-50"
-                onClick={() => {
-                  setShowLoginPrompt(false);
-                  navigate("/login");
-                }}
+                onClick={handleSignIn}
               >
                 Sign In
               </Button>
               
               <button 
                 className="text-sm text-skin-terracotta-600 hover:text-skin-terracotta-700"
-                onClick={() => {
-                  setShowLoginPrompt(false);
-                  navigate("/recommendations");
-                }}
+                onClick={handleContinueAsGuest}
               >
                 Continue as Guest
               </button>
