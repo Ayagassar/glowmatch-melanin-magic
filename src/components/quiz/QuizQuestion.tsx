@@ -79,7 +79,7 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
       )}
 
       {/* For regular single select questions */}
-      {question.type === "single" && question.options && question.type !== "visual" && (
+      {question.type === "single" && question.options && (
         <div className="space-y-3">
           {question.options.map((option) => (
             <button
@@ -176,3 +176,4 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
 };
 
 export default QuizQuestion;
+
