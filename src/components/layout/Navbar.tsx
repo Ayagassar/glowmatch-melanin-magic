@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/Screenshot_2025-04-21_at_15.23.24-removebg-preview.png"; // Adjust path if needed
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className="py-4 md:py-6 bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <div className="container-custom flex justify-between items-center">
         <Link to="/" className="text-xl font-serif font-medium text-skin-brown-800">
-          GlowMatch AI
+          <img src={logo} alt="GlowMatch Logo" className="h-8 md:h-10" />
         </Link>
 
         {/* Desktop Navigation */}
