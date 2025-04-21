@@ -60,12 +60,12 @@ export const quizQuestions: QuizQuestion[] = [
       { 
         value: "medium-dark", 
         label: "Medium to Dark Brown", 
-        imageUrl: "https://i.pinimg.com/736x/55/37/a6/5537a6400b8edeb4ebc142373582b83b.jpg" 
+        imageUrl: "https://i.pinimg.com/474x/9d/3f/c6/9d3fc67522de8235c2bd0cd464e38012.jpg" 
       },
       { 
         value: "dark", 
         label: "Dark Brown", 
-        imageUrl: "https://i.pinimg.com/474x/6f/f3/3d/6ff33d80be6b0f3e12abd0f7c792a215.jpg" 
+        imageUrl: "https://i.pinimg.com/736x/55/37/a6/5537a6400b8edeb4ebc142373582b83b.jpg" 
       },
       { 
         value: "very-dark", 
