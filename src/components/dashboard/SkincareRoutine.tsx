@@ -66,7 +66,7 @@ const SkincareRoutine = ({
       : (hasAcne 
          ? "Contains small amounts of salicylic acid to help control oil and prevent breakouts without over-drying."
          : "Nourishing cleanser that removes impurities while maintaining your skin's natural moisture."),
-    imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    imageUrl: "https://www.farmasiet.no/images/the-inkey-list-oat-cleansing-balm,34405_1200655.png",
   });
   
   // 2. For Full Routine - add Toner (optional based on time)
@@ -121,7 +121,7 @@ const SkincareRoutine = ({
       : (hasOiliness 
          ? "Lightweight gel formula that hydrates without clogging pores or adding extra oil to your skin."
          : "Perfect balance of hydration that's neither too heavy nor too light for your balanced skin."),
-    imageUrl: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=752&q=80",
+    imageUrl: "https://static.thcdn.com/images/large/original//productimg/1600/1600/15408246-3255192203870182.jpg",
   });
   
   // 5. Sunscreen (everyone gets this)
