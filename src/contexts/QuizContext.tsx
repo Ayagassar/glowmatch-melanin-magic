@@ -50,7 +50,7 @@ export const quizQuestions: QuizQuestion[] = [
       { 
         value: "light-medium", 
         label: "Light to Medium Brown", 
-        imageUrl: "https://i.pinimg.com/474x/15/ce/50/15ce50f7dc85cfc7b1d091449c28ae3c.jpg" 
+        imageUrl: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-2af4-6246-821b-2f51d0d0d8a6/raw?se=2025-04-21T10%3A39%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=8c23316e-3d8e-5380-9f55-d18ea9532b3b&skoid=59d06260-d7df-416c-92f4-051f0b47c607&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-21T05%3A55%3A07Z&ske=2025-04-22T05%3A55%3A07Z&sks=b&skv=2024-08-04&sig=y5RcLQBkM1Ppp4Y9Ht6t9N6ldJtxB6%2B0Xq01QnbSwXU%3D" 
       },
       { 
         value: "medium", 
