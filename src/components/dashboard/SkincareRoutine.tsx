@@ -132,7 +132,7 @@ const SkincareRoutine = ({
     matchReason: hasSensitivity 
       ? "Mineral-based formula with zinc oxide that's specially formulated to blend seamlessly with darker skin tones without leaving a white cast."
       : "Invisible, non-comedogenic formula with no white cast, specifically designed for melanin-rich skin. Provides broad-spectrum protection against UVA/UVB rays.",
-    imageUrl: "https://images.unsplash.com/photo-1556229167-7ed11195e641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    imageUrl: "https://i5.walmartimages.com/seo/KINLO-Golden-Rays-Tinted-Sunscreen-SPF-50-Active-Mineral-Sunscreen-Reef-Safe-Water-Resistant-Up-to-80-min-Shade-Deep-0-95-fl-oz_d93183d9-0466-4f1d-b2d1-6d14396a0d31.9bd08f4ec0f95aef35e6a981f202fd07.jpeg",
   });
   
   // For minimal routine, keep only cleanser, light treatment and sunscreen
@@ -162,7 +162,7 @@ const SkincareRoutine = ({
     brand: brands[Math.floor(Math.random() * brands.length)],
     purpose: isMinimalRoutine ? "Cleanser" : "Second Cleanse",
     matchReason: "Same gentle but effective cleanser from your morning routine to properly clean your skin without stripping it.",
-    imageUrl: "https://images.unsplash.com/photo-1626394809745-ee1fd3a24d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    imageUrl: "https://vakkerhud.no/cdn/shop/files/20271-exu-retail-gentle-cream-cleanser-3_1_800x.jpg?v=1740581188",
   });
   
   // 3. Exfoliation or Treatment (not for minimal + sensitive unless specific concern)
@@ -243,7 +243,7 @@ const SkincareRoutine = ({
       : (hasOiliness 
          ? "Oil-free gel formula that provides necessary hydration while helping to balance sebum production overnight."
          : "Balanced formula that supports your skin's natural overnight renewal process without feeling heavy."),
-    imageUrl: "https://images.unsplash.com/photo-1517391882955-e1b20cafee7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    imageUrl: "https://i.pinimg.com/736x/a6/d0/b1/a6d0b1fa406b3ee9abb1cb07068940be.jpg",
   });
   
   // 6. Optional Face Oil for Full Routine + Dry Skin
