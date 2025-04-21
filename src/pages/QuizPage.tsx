@@ -7,6 +7,9 @@ import QuizQuestion from "@/components/quiz/QuizQuestion";
 import { useQuiz, quizQuestions } from "@/contexts/QuizContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const QuizPage = () => {
   const { 
@@ -19,10 +22,11 @@ const QuizPage = () => {
     isComplete 
   } = useQuiz();
   
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   
   // Get current question
   const currentQuestion = quizQuestions[currentStep - 1];
@@ -35,30 +39,38 @@ const QuizPage = () => {
   const handleNext = () => {
     if (isLastQuestion) {
       setSubmitting(true);
-      // Submit the quiz and redirect to recommendations
+      
+      // Complete the quiz regardless of authentication status
       completeQuiz();
+      
       // Show toast notification
       toast({
         title: "Quiz completed!",
         description: "We've found your personalized skincare matches!",
         duration: 3000,
       });
-      // Simulate loading
-      setTimeout(() => {
-        setSubmitting(false);
-        navigate("/recommendations");
-      }, 1500);
+      
+      // If user is not authenticated, show login prompt
+      if (!isAuthenticated) {
+        setShowLoginPrompt(true);
+      } else {
+        // If authenticated, redirect to recommendations
+        setTimeout(() => {
+          setSubmitting(false);
+          navigate("/recommendations");
+        }, 1500);
+      }
     } else {
       nextStep();
     }
   };
   
-  // Redirect to recommendations if quiz is complete
+  // Redirect to recommendations if quiz is complete and user is authenticated
   useEffect(() => {
-    if (isComplete && !submitting) {
+    if (isComplete && !submitting && isAuthenticated) {
       navigate("/recommendations");
     }
-  }, [isComplete, submitting, navigate]);
+  }, [isComplete, submitting, isAuthenticated, navigate]);
 
   return (
     <Layout>
@@ -102,7 +114,7 @@ const QuizPage = () => {
                   {submitting 
                     ? "Finding your matches..." 
                     : isLastQuestion 
-                      ? "Complete Quiz" 
+                      ? "See My Results" 
                       : "Next"}
                 </button>
               </div>
@@ -110,6 +122,53 @@ const QuizPage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Login/Signup Prompt Dialog */}
+      <Dialog open={showLoginPrompt} onOpenChange={setShowLoginPrompt}>
+        <DialogContent className="sm:max-w-md">
+          <DialogTitle className="text-center text-xl font-medium text-skin-brown-800">
+            Get Your Personalized Results
+          </DialogTitle>
+          <DialogDescription className="text-center text-skin-brown-600">
+            Create an account or log in to see your customized skincare routine and recommendations.
+          </DialogDescription>
+          
+          <div className="grid gap-4 py-4">
+            <div className="flex flex-col items-center gap-4">
+              <Button 
+                className="w-full bg-skin-terracotta-500 hover:bg-skin-terracotta-600"
+                onClick={() => {
+                  setShowLoginPrompt(false);
+                  navigate("/login", { state: { signup: true } });
+                }}
+              >
+                Create Account
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full border-skin-brown-300 text-skin-brown-700 hover:bg-skin-brown-50"
+                onClick={() => {
+                  setShowLoginPrompt(false);
+                  navigate("/login");
+                }}
+              >
+                Sign In
+              </Button>
+              
+              <button 
+                className="text-sm text-skin-terracotta-600 hover:text-skin-terracotta-700"
+                onClick={() => {
+                  setShowLoginPrompt(false);
+                  navigate("/recommendations");
+                }}
+              >
+                Continue as Guest
+              </button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

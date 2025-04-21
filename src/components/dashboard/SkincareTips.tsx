@@ -10,50 +10,64 @@ const SkincareTips = ({ concerns }: SkincareTipsProps) => {
     
     if (concerns.includes("hyperpigmentation")) {
       tips.push({
-        title: "For Hyperpigmentation",
-        content: "Be consistent with your brightening products and always use sunscreen. Sun exposure can worsen dark spots. Look for ingredients like vitamin C, alpha arbutin, niacinamide, and kojic acid."
+        title: "For Dark Spots & Hyperpigmentation",
+        content: "Use vitamin C in the morning to protect and brighten. Try ingredients like alpha arbutin, niacinamide, and tranexamic acid. Be patient—melanin-rich skin needs consistent treatment for at least 8-12 weeks to see results."
       });
     }
     
     if (concerns.includes("acne")) {
       tips.push({
         title: "For Acne & Breakouts",
-        content: "Avoid over-cleansing which can strip your skin and lead to more oil production. Focus on gentle, non-comedogenic products and consider incorporating salicylic acid or benzoyl peroxide treatments."
+        content: "Avoid harsh, stripping products which can lead to more oil production and post-inflammatory hyperpigmentation. Look for gentle exfoliants like mandelic acid and PHA that are less likely to cause irritation in melanin-rich skin."
       });
     }
     
     if (concerns.includes("dryness")) {
       tips.push({
         title: "For Dry Skin",
-        content: "Apply moisturizer while your skin is still slightly damp after cleansing. Consider using a humidifier in your bedroom and drinking plenty of water. Look for products with hyaluronic acid, glycerin, and ceramides."
+        content: "Layer your hydration by applying products to slightly damp skin. Look for humectants like glycerin and hyaluronic acid, followed by emollients like shea butter that are especially effective for darker skin tones."
       });
     }
     
     if (concerns.includes("sensitivity")) {
       tips.push({
         title: "For Sensitive Skin",
-        content: "Patch test new products before applying them to your face. Keep your routine simple and avoid products with fragrance, alcohol, and harsh exfoliants. Look for soothing ingredients like centella asiatica, aloe, and oat extract."
+        content: "Patch test new products on your inner arm for 24 hours before applying to your face. Look for fragrance-free formulas with soothing ingredients like centella asiatica, oat extract, and aloe."
       });
     }
     
     if (concerns.includes("oiliness")) {
       tips.push({
         title: "For Oily Skin",
-        content: "Don't skip moisturizer—it's essential even for oily skin. Look for lightweight, oil-free formulas. Consider using a clay mask 1-2 times per week and products with niacinamide to help regulate oil production."
+        content: "Don't skip moisturizer! Look for lightweight, non-comedogenic formulas with niacinamide to help regulate sebum production. Try using a clay mask with bentonite or kaolin 1-2 times weekly."
       });
     }
     
-    // General tips for everyone
+    if (concerns.includes("texture")) {
+      tips.push({
+        title: "For Uneven Texture",
+        content: "Incorporate gentle chemical exfoliation rather than harsh physical scrubs. Enzymes from papaya and pineapple are excellent for melanin-rich skin as they're effective without causing inflammation."
+      });
+    }
+    
+    if (concerns.includes("dullness")) {
+      tips.push({
+        title: "For Dull Complexion",
+        content: "Focus on hydration, gentle exfoliation, and antioxidants to reveal your natural glow. Try facial massage with oils like jojoba or squalane that mimic your skin's natural sebum."
+      });
+    }
+    
+    // This tip appears for everyone with melanin-rich skin
     tips.push({
-      title: "For Melanin-Rich Skin",
-      content: "Always wear sunscreen, even on cloudy days. While melanin provides some protection, UV rays can still cause damage and worsen hyperpigmentation. Look for sunscreens formulated to blend seamlessly with darker skin tones."
+      title: "For All Melanin-Rich Skin",
+      content: "Always use sunscreen! UV exposure worsens hyperpigmentation and aging, even in darker skin tones. Look for chemical formulations with avobenzone and homosalate that don't leave a white cast."
     });
     
-    // Special tip for multiple concerns
+    // Special tip for people with multiple concerns
     if (concerns.length > 2) {
       tips.push({
-        title: "For Multiple Concerns",
-        content: "Focus on addressing one concern at a time rather than trying to tackle everything at once. This prevents overloading your skin with active ingredients. Start with your most pressing concern and gradually introduce products for other issues."
+        title: "Managing Multiple Concerns",
+        content: "Focus on addressing one skin concern at a time rather than layering too many active ingredients, which can cause irritation. Start with your most pressing concern and gradually add treatments for other issues."
       });
     }
     
@@ -64,7 +78,7 @@ const SkincareTips = ({ concerns }: SkincareTipsProps) => {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-skin-brown-200 p-6">
-      <h2 className="text-2xl font-medium text-skin-brown-800 mb-6">
+      <h2 className="text-xl font-medium text-skin-brown-800 mb-6">
         Skincare Tips for You
       </h2>
       
@@ -74,7 +88,7 @@ const SkincareTips = ({ concerns }: SkincareTipsProps) => {
             <h3 className="font-medium text-skin-brown-800 mb-2">
               {tip.title}
             </h3>
-            <p className="text-skin-brown-600">
+            <p className="text-skin-brown-600 text-sm">
               {tip.content}
             </p>
           </div>

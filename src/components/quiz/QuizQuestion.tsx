@@ -21,6 +21,12 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
 
   const handleMultipleSelect = (value: string) => {
     const currentValues = currentAnswer || [];
+    
+    // Check if we need to enforce the "up to 3" limit for concerns
+    if (question.id === "concerns" && !currentValues.includes(value) && currentValues.length >= 3) {
+      return; // Don't add more than 3 concerns
+    }
+    
     const newValues = currentValues.includes(value)
       ? currentValues.filter((v: string) => v !== value)
       : [...currentValues, value];
@@ -39,8 +45,41 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
       <h3 className="text-xl md:text-2xl font-medium text-skin-brown-800 mb-6">
         {question.question}
       </h3>
+      
+      {/* For skin tone visual selector */}
+      {question.type === "visual" && question.options && (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          {question.options.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => handleSingleSelect(option.value)}
+              className={`rounded-xl overflow-hidden flex flex-col border-2 transition-all ${
+                currentAnswer === option.value
+                  ? "border-skin-terracotta-500 shadow-md"
+                  : "border-transparent hover:border-skin-brown-200"
+              }`}
+            >
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={option.imageUrl} 
+                  alt={option.label}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className={`py-2 px-1 text-center text-sm ${
+                currentAnswer === option.value
+                  ? "bg-skin-terracotta-50 text-skin-terracotta-700 font-medium"
+                  : "bg-skin-brown-50 text-skin-brown-700"
+              }`}>
+                {option.label}
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
 
-      {question.type === "single" && question.options && (
+      {/* For regular single select questions */}
+      {question.type === "single" && question.options && question.type !== "visual" && (
         <div className="space-y-3">
           {question.options.map((option) => (
             <button
@@ -58,8 +97,15 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
         </div>
       )}
 
+      {/* For multiple select questions */}
       {question.type === "multiple" && question.options && (
         <div className="space-y-3">
+          {question.id === "concerns" && (
+            <p className="text-skin-brown-600 mb-4 italic text-sm">
+              Select up to 3 concerns
+            </p>
+          )}
+          
           {question.options.map((option) => (
             <button
               key={option.value}
@@ -68,7 +114,15 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
                 currentAnswer && currentAnswer.includes(option.value)
                   ? "bg-skin-terracotta-100 border-skin-terracotta-500 text-skin-brown-800"
                   : "bg-white border-skin-brown-200 text-skin-brown-600 hover:bg-skin-brown-50"
+              } ${
+                question.id === "concerns" && 
+                currentAnswer && 
+                currentAnswer.length >= 3 && 
+                !currentAnswer.includes(option.value)
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
               }`}
+              disabled={question.id === "concerns" && currentAnswer && currentAnswer.length >= 3 && !currentAnswer.includes(option.value)}
             >
               <div className="flex items-center">
                 <div 
@@ -91,6 +145,7 @@ const QuizQuestion = ({ question }: QuizQuestionProps) => {
         </div>
       )}
 
+      {/* For scale questions */}
       {question.type === "scale" && (
         <div>
           <div className="mb-6">

@@ -5,8 +5,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 export type QuizQuestion = {
   id: string;
   question: string;
-  type: "single" | "multiple" | "scale";
-  options?: { value: string; label: string }[];
+  type: "single" | "multiple" | "scale" | "visual";
+  options?: { value: string; label: string; imageUrl?: string }[];
   min?: number;
   max?: number;
 };
@@ -16,6 +16,11 @@ export type SkinProfile = {
   skinTone: string;
   skinType: string;
   concerns: string[];
+  currentRoutine: string;
+  skinReactions: string;
+  sunscreenUse: string;
+  timeAvailable: string;
+  preferences: string[];
   sensitivity: number;
   location: string;
 };
@@ -39,14 +44,34 @@ type QuizContextType = {
 export const quizQuestions: QuizQuestion[] = [
   {
     id: "skinTone",
-    question: "How would you describe your skin tone?",
-    type: "single",
+    question: "Which best matches your skin tone?",
+    type: "visual",
     options: [
-      { value: "light-medium", label: "Light to Medium Brown" },
-      { value: "medium", label: "Medium Brown" },
-      { value: "medium-dark", label: "Medium to Dark Brown" },
-      { value: "dark", label: "Dark Brown" },
-      { value: "very-dark", label: "Very Dark Brown" },
+      { 
+        value: "light-medium", 
+        label: "Light to Medium Brown", 
+        imageUrl: "https://i.pinimg.com/474x/15/ce/50/15ce50f7dc85cfc7b1d091449c28ae3c.jpg" 
+      },
+      { 
+        value: "medium", 
+        label: "Medium Brown", 
+        imageUrl: "https://i.pinimg.com/474x/97/e0/95/97e095c2a8e6467fce1f0a24eeee1ae5.jpg" 
+      },
+      { 
+        value: "medium-dark", 
+        label: "Medium to Dark Brown", 
+        imageUrl: "https://i.pinimg.com/474x/e8/a2/fa/e8a2fa5e00c234801b33c7c6b7d21f66.jpg" 
+      },
+      { 
+        value: "dark", 
+        label: "Dark Brown", 
+        imageUrl: "https://i.pinimg.com/474x/6f/f3/3d/6ff33d80be6b0f3e12abd0f7c792a215.jpg" 
+      },
+      { 
+        value: "very-dark", 
+        label: "Very Dark Brown", 
+        imageUrl: "https://i.pinimg.com/474x/e2/07/83/e20783cd891dbe79f3d4db13b08a2305.jpg" 
+      },
     ],
   },
   {
@@ -58,12 +83,13 @@ export const quizQuestions: QuizQuestion[] = [
       { value: "oily", label: "Oily - shiny, especially T-zone" },
       { value: "combination", label: "Combination - oily T-zone, dry cheeks" },
       { value: "normal", label: "Normal - balanced, not too dry or oily" },
+      { value: "sensitive", label: "Sensitive - easily irritated or reactive" },
       { value: "not-sure", label: "I'm not sure" },
     ],
   },
   {
     id: "concerns",
-    question: "What are your main skin concerns? (Select all that apply)",
+    question: "What are your top skin concerns? (Select up to 3)",
     type: "multiple",
     options: [
       { value: "hyperpigmentation", label: "Dark spots or hyperpigmentation" },
@@ -78,11 +104,69 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: "currentRoutine",
+    question: "How would you describe your current skincare routine?",
+    type: "single",
+    options: [
+      { value: "none", label: "None - I don't have a routine" },
+      { value: "basic", label: "Basic - cleanser and maybe moisturizer" },
+      { value: "full", label: "Full - several steps with different products" },
+      { value: "prescription", label: "Prescription - includes doctor-prescribed products" },
+      { value: "inconsistent", label: "Inconsistent - I skip days or change frequently" },
+    ],
+  },
+  {
+    id: "skinReactions",
+    question: "Do you experience reactions to skincare products?",
+    type: "single",
+    options: [
+      { value: "yes", label: "Yes, often - many products irritate my skin" },
+      { value: "sometimes", label: "Sometimes - certain ingredients cause issues" },
+      { value: "rarely", label: "Rarely - only very harsh products cause problems" },
+      { value: "never", label: "Never - my skin tolerates most products well" },
+      { value: "not-sure", label: "Not sure - I haven't noticed patterns" },
+    ],
+  },
+  {
     id: "sensitivity",
-    question: "How sensitive is your skin?",
+    question: "On a scale of 1-5, how sensitive is your skin?",
     type: "scale",
     min: 1,
     max: 5,
+  },
+  {
+    id: "sunscreenUse",
+    question: "How often do you wear sunscreen?",
+    type: "single",
+    options: [
+      { value: "daily", label: "Daily - I wear it every day" },
+      { value: "sometimes", label: "Sometimes - When I remember or I'm outdoors" },
+      { value: "rarely", label: "Rarely - I usually forget or don't like it" },
+      { value: "never", label: "Never - I don't use sunscreen" },
+    ],
+  },
+  {
+    id: "timeAvailable",
+    question: "How much time can you dedicate to your skincare routine?",
+    type: "single",
+    options: [
+      { value: "minimal", label: "Minimal - 5 minutes or less" },
+      { value: "moderate", label: "Moderate - 5-10 minutes" },
+      { value: "full", label: "Full routine - 10+ minutes" },
+    ],
+  },
+  {
+    id: "preferences",
+    question: "Do you have any preferences for product type? (Select all that apply)",
+    type: "multiple",
+    options: [
+      { value: "black-owned", label: "Black-owned brands" },
+      { value: "fragrance-free", label: "Fragrance-free formulas" },
+      { value: "vegan", label: "Vegan/cruelty-free" },
+      { value: "natural", label: "Natural/clean ingredients" },
+      { value: "affordable", label: "Budget-friendly options" },
+      { value: "luxury", label: "Luxury/high-end products" },
+    ],
   },
   {
     id: "location",
@@ -140,6 +224,11 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
 
   // Set answer for a specific question
   const setAnswer = (questionId: string, answer: any) => {
+    // If this is the concerns question, limit to 3 selections
+    if (questionId === "concerns" && Array.isArray(answer) && answer.length > 3) {
+      answer = answer.slice(0, 3);
+    }
+    
     const updatedAnswers = { ...answers, [questionId]: answer };
     setAnswers(updatedAnswers);
     localStorage.setItem("glowmatch_quiz_answers", JSON.stringify(updatedAnswers));
@@ -173,6 +262,11 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
       skinTone: answers.skinTone || "medium",
       skinType: answers.skinType || "normal",
       concerns: answers.concerns || ["hyperpigmentation"],
+      currentRoutine: answers.currentRoutine || "basic",
+      skinReactions: answers.skinReactions || "sometimes",
+      sunscreenUse: answers.sunscreenUse || "sometimes",
+      timeAvailable: answers.timeAvailable || "moderate",
+      preferences: answers.preferences || [],
       sensitivity: answers.sensitivity || 3,
       location: answers.location || "temperate",
     };
